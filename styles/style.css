@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 @font-face {
     font-family: 'Asked'; 
     src: url('../fonts/Glen Jan - AsketExtended-Light.otf') format('opentype'); 
@@ -27,6 +31,7 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+    
 }
 
 .mainMenu {
@@ -82,8 +87,6 @@ a {
     margin-left: 60%;
     color: rgba(224, 224, 224, 1);
     }
-
-    
 
     .downloadLogo {
     display: none;
@@ -179,14 +182,15 @@ a {
     font-family: 'HilmarMedium';
     display: flex;
     flex-direction: column;
+    animation: fadeInUp 0.9s ease-out forwards;
 }
 
-#learnMoreButton {
+.learnMoreButton {
     width: 30%;
     margin-right: 10%;
     margin-left: 30%;  
-    font-size: clamp(0.7rem, 0.5rem + 0.5vw, 1rem);
-    height: 6%;
+    font-size: clamp(0.7rem, 1rem + 1vw, 1.4rem);
+    height: 7%;
     background-color: transparent;
     color: rgba(224, 224, 224, 0.9);  
     border: 2px solid;
@@ -201,7 +205,7 @@ a {
     font-family: 'Asked'; 
 }
 
-#learnMoreButton:hover {
+.learnMoreButton:hover {
     transform: scale(1.05); /* Aumenta ligeramente el tamaño */
     box-shadow: 0 0 15px rgba(167, 101, 167, 0.7); /* Sombra morada */
     background-color: rgba(255, 255, 255, 0.703);
@@ -218,36 +222,144 @@ a {
 .rightSecond {
     width: 60%;
     height: 100%;
+    
 }
 
+.welcomePicture {
+    width: 40%;
+    height: 70%;
+    margin-top: 7%;
+    margin-left: 25%;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
 
+.firstPicture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
 
+@media screen and (max-width: 1000px) {
+    .learnMoreButton{
+        width: 60%;
+    }
 
+    .welcomePicture {
+    width: 60%;
+    height: 50%;
+    margin-top: 15%;
+}
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Empieza 20px más abajo */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Termina en su posición original */
+  }
+}
 
 .secondDiv {
     height: 100vh;
     width: 100vw;
     background-color: rgb(20, 20, 20);
+    
+    display: flex;
+    flex-direction: row;
+}
+
+.leftSecondDiv {
+    width: 50%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightSecondDiv {
+    width: 50%;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 10%;
+}
+
+#whoIam {
+    color: aliceblue;
+    font-family: 'HilmarMedium';
+    font-size: clamp(0.7rem, 0.5rem + 3.5vw, 3.5rem);
+}
+
+#textWhoIam {
+    color: rgba(240, 248, 255, 0.75);
+    font-family: 'Hilmar';
+    font-size: clamp(0.7rem, 1rem + 1vw, 2rem);
+    
+}
+
+.divButtons {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.buttonsVisionMission {
+    margin-right: 1rem;
+    font-family: 'Asked' ;
+    font-size: clamp(0.7rem, 1rem + 1vw, 1.4rem);
+    width: 25%;
+    height: 80%;
+    background-color: transparent;
+    color: rgba(224, 224, 224, 0.9);  
+    border: 2px solid;
+    border-color: rgba(138, 163, 218, 0.425);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+    border-radius: 30px;
+}
+
+.buttonsVisionMission:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    box-shadow: 0 0 15px rgba(167, 101, 167, 0.7); /* Sombra morada */
+    background-color: rgba(255, 255, 255, 0.75);
+    color: black;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .secondDiv {
+    display: flex;
+    flex-direction: column-reverse;
+    border: 1px solid wheat;
+    height: 150vh;
+}
+    .rightSecondDiv {
+        width: 100%;
+        height: 60%;
+        border: 1px solid wheat;
+        align-items: center;
+    }
+
+    .divButtons {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .buttonsVisionMission {
+    
+    }
+
+
 }
