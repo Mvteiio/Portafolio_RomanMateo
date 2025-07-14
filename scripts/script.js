@@ -25,3 +25,34 @@ window.addEventListener('scroll', () => {
     // Actualizar la posición de scroll anterior para la próxima comparación
     lastScrollY = currentScrollY;
 });
+
+// Para proyectos
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  });
+
+  const elementosAnimados = document.querySelectorAll('.card2');
+  elementosAnimados.forEach(el => observer.observe(el));
+
+// Para servicios
+
+
+const observer2 = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  });
+
+  const elementosAnimados2 = document.querySelectorAll('.card-container');
+  elementosAnimados2.forEach(el => observer.observe(el));
