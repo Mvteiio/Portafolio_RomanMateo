@@ -4,8 +4,8 @@ const mainMenu = document.getElementById('mainMenu');
 // Variable para almacenar la posición de scroll anterior
 let lastScrollY = window.scrollY;
 
-// Altura del menú (debe coincidir con el CSS)
-const menuHeight = mainMenu.offsetHeight; // O puedes usar un valor fijo como 60
+
+const menuHeight = mainMenu.offsetHeight; 
 
 // Listener para el evento de scroll
 window.addEventListener('scroll', () => {
@@ -56,3 +56,39 @@ const observer2 = new IntersectionObserver((entries) => {
 
   const elementosAnimados2 = document.querySelectorAll('.card-container');
   elementosAnimados2.forEach(el => observer.observe(el));
+
+
+// Seleccionamos todos los elementos necesarios
+const botonesAbrir = document.querySelectorAll(".buttonsVisionMission");
+const botonesCerrar = document.querySelectorAll(".cerrar");
+
+// Recorremos cada botón de ABRIR
+botonesAbrir.forEach(boton => {
+  boton.onclick = function() {
+    const targetModalId = boton.dataset.target;
+    const modal = document.querySelector(targetModalId);
+    if (modal) {
+      // En lugar de cambiar el display, AÑADIMOS la clase
+      modal.classList.add("modal-visible");
+    }
+  }
+});
+
+// Recorremos cada botón de CERRAR
+botonesCerrar.forEach(boton => {
+  boton.onclick = function() {
+    const modal = boton.closest(".modal-contenedor");
+    if (modal) {
+      // En lugar de cambiar el display, QUITAMOS la clase
+      modal.classList.remove("modal-visible");
+    }
+  }
+});
+
+// Función para cerrar si se hace clic FUERA
+window.onclick = function(event) {
+  if (event.target.classList.contains("modal-contenedor")) {
+    // Si se hace clic en el fondo, QUITAMOS la clase
+    event.target.classList.remove("modal-visible");
+  }
+}
