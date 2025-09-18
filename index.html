@@ -12,7 +12,7 @@
         <div class="mainMenuBoxes"><a href="#redirect-learnMore"><h3 class="hoverMenu">Sobre mi</h3></a></div>
         <div class="mainMenuBoxes"><a href="#redirect-services"><h3 class="hoverMenu">Servicios</h3></a></div>
         <div class="mainMenuBoxes"><a href="#redirect-projects"><h3 class="hoverMenu">Proyectos</h3></a></div>
-        <div class="mainMenuBoxes"><a href=""><h3 class="hoverMenu">Contacto</h3></a></div>
+        <div class="mainMenuBoxes"><a href="#redirect-contact"><h3 class="hoverMenu">Contacto</h3></a></div>
     </div>
     <div class="mainDiv">
         <div class="superiorDivMain">
@@ -32,7 +32,7 @@
             </div>
             <div class="rightSecond">
                 <div class="welcomePicture">
-                    <img src="./multimedia/image.jpg" alt="" class="firstPicture">
+                    <img src="./multimedia/image.png" alt="" class="firstPicture" loading="lazy">
                 </div>
             </div>
         </div>
@@ -253,7 +253,7 @@
                     </div>
 
                    
-                    <button class="button" onclick="window.open('https://mvteiio.github.io/Proyecto_HTML_S1_RomanMateo_VeraDavid/index.html', '_blank')">
+                    <button class="button" onclick="window.open('https://mvteiio.github.io/KarioMedia/paginaPrincipal.html', '_blank')">
                         <span class="text-button">Visitar</span>
                     </button>
                     </span></span>
@@ -262,22 +262,55 @@
             <div class="project">
                 <div class="card2">
                     <span class="title"
-                        >Mini Campus
-                    <p class="pricing"><span class="pricing-time">Python</span></p>
-                    <span class="sub-title">Manejo de persistencia, se maneja desde la consola. CRUD funcional de JSON.</span>
+                        >Gestor Portafolio
+                    <p class="pricing"><span class="pricing-time">NodeJs y MongoDB</span></p>
+                    <span class="sub-title">Aplicacion por consola con CRUD backend con NodeJS y conexion a MongoDB</span>
                     <div class="divProjectImage">
-                        <img src="" alt="" class="imageProject">
+                        <img src="./multimedia/nodeJSproject.png" alt="" class="imageProject">
                     </div>
 
                    
-                    <button class="button" onclick="window.open('https://github.com/Dante-Sal/Proyecto_Python_RomanMateoSalamancaDante', '_blank')">
+                    <button class="button" onclick="window.open('https://github.com/Sarasofia1214/Proyecto_NODEJS_DiazSara_RomanMateo', '_blank')">
                         <span class="text-button">Visitar</span>
                     </button>
                     </span></span>
                 </div>
             </div>
+            
          </div>
     </div>
+
+    <div class="sexto" id="redirect-contact">
+        <div class="info-container">
+            <h1>Contáctame</h1>
+            <p>¿Tienes una idea o un proyecto en mente? Si te gustó mi trabajo y crees que podemos construir algo increíble juntos, no dudes en escribirme. Rellena el formulario y me pondré en contacto contigo lo antes posible.
+                
+            </p>
+        </div>
+
+        <div class="form-container">
+            <form action="https://formspree.io/f/xqadvnjg" method="POST">
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                
+                <div class="input-field">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit">Enviar mensaje</button>
+            </form>
+        </div>   
+    </div>
+
 </body>
 <script src="./scripts/script.js"></script>
 </html> 
