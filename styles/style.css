@@ -1162,3 +1162,20 @@ backdrop-filter: blur(12px);
         padding: 10vw 5vw; 
     }
 }
+
+@keyframes fadeInUp {
+  from {
+    /* El elemento empieza invisible */
+    opacity: 0;
+    
+    /* Y un poco más abajo de su posición final */
+    transform: translateY(30px);
+  }
+  to {
+    /* Termina totalmente visible */
+    opacity: 1;
+
+    /* Y en su posición original, sin desplazamiento */
+    transform: translateY(0);
+  }
+}
