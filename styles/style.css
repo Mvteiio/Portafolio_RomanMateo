@@ -1,3 +1,4 @@
+
 html {
   scroll-behavior: smooth;
 }
@@ -1020,7 +1021,7 @@ backdrop-filter: blur(12px);
 
 .sexto {
             height: 100vh;
-            width: 100%; 
+            width: 100vw; 
             background-color: rgb(20, 20, 20);
     display: flex;
     align-items: center;
@@ -1178,4 +1179,169 @@ backdrop-filter: blur(12px);
     /* Y en su posición original, sin desplazamiento */
     transform: translateY(0);
   }
+}
+
+/* --- SECCIÓN PRINCIPAL: Altura Completa y Fondo Negro --- */
+.container-certificados {
+    min-height: 100vh; /* Ocupa el 100% de la altura de la vista */
+    background-color: rgb(20, 20, 20); /* Fondo negro puro */
+    padding: 80px 5%;
+    width: 100vw;
+    /* Centra el contenido vertical y horizontalmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* <-- ESTO MUEVE EL BLOQUE DE CONTENIDO HACIA ARRIBA */
+    padding-top: 50px; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente el contenido total de la sección */
+}
+
+/* --- TÍTULO --- */
+.container-certificados h2 {
+    color: aliceblue;
+  font-family: 'Montserrat';
+  font-size: clamp(0.7rem, 0.5rem + 3.5vw, 3.5rem);
+  margin-bottom: 100px;
+  animation: 
+    escalada both ease-in,
+    fadeIn both linear;
+  animation-timeline: --scroll;
+  animation-range: entry 0% entry 80% ;
+}
+
+/* --- GRID: Contenedor para las tarjetas, las mantiene en línea --- */
+.certificados-grid {
+    display: flex; /* Habilita flexbox para que las tarjetas se alineen */
+    flex-wrap: wrap; /* Permite que las tarjetas salten de línea si no caben */
+    gap: 50px; /* Espacio entre las tarjetas */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    max-width: 1200px; /* Un ancho máximo para el contenedor del grid, puedes ajustarlo */
+    width: 100%; /* Asegura que el grid ocupe todo el ancho disponible */
+}
+
+/* --- TARJETA INDIVIDUAL --- */
+.certificado-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    /* Las tarjetas tendrán un ancho flexible para caber en 3 columnas */
+    flex: 1 1 calc(33.333% - 20px); /* 3 tarjetas por línea con espacio */
+    min-width: 280px; /* Ancho mínimo para que no se hagan demasiado pequeñas */
+    max-width: 380px; /* Ancho máximo para evitar que crezcan demasiado */
+    height: 350px; /* Altura ajustada, puedes modificarla */
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(138, 43, 226, 0.3); 
+}
+
+/* Efecto Hover: Movimiento y Brillo Púrpura */
+.certificado-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #8a2be2, 0 0 40px rgba(138, 43, 226, 0.7); 
+}
+
+/* --- CONTENIDO INTERNO: Imagen arriba, Info abajo (Diseño Vertical dentro de la tarjeta) --- */
+.card-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #1C1030;
+    height: 100%;
+}
+
+/* IMAGEN DEL CERTIFICADO */
+.card-content img {
+    width: 100%;
+    height: 70%; 
+    object-fit: cover; 
+    display: block;
+    border-bottom: 1px solid rgba(138, 43, 226, 0.3); 
+}
+
+/* INFORMACIÓN DE TEXTO */
+.card-info {
+    width: 100%;
+    height: 30%;
+    padding: 15px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-info h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.1em;
+    font-family: 'Montserrat', sans-serif; 
+}
+
+.card-info p {
+    color: #CFCFCF;
+    margin-top: 5px;
+    font-size: 0.9em;
+    font-family: 'Montserrat', sans-serif; 
+}
+
+
+.card-overlay span {
+    color: #CFCFCF;
+    margin-top: 5px;
+    font-size: 0.9em;
+    font-family: 'Montserrat', sans-serif; 
+}
+
+/* --- OVERLAY DE DESCARGA (Hover Effect) --- */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(138, 43, 226, 0.85); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.certificado-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.card-overlay span {
+    color: #FFFFFF;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Media Query: Para tabletas y móviles, las tarjetas se apilan */
+@media (max-width: 992px) { /* A partir de este ancho, las tarjetas se pueden apilar */
+    .certificado-card {
+        flex: 1 1 calc(50% - 20px); /* 2 tarjetas por línea en pantallas medianas */
+    }
+}
+
+@media (max-width: 600px) { /* Una tarjeta por línea en móviles */
+    .container-certificados {
+        min-height: auto; /* Deshabilita 100vh en móvil para no cortar el contenido */
+        padding: 60px 3%; /* Menos padding en pantallas pequeñas */
+    }
+    .container-certificados h2 {
+        font-size: 2em;
+    }
+    .certificados-grid {
+        gap: 20px;
+    }
+    .certificado-card {
+        flex: 1 1 90%; /* Ocupa casi todo el ancho disponible */
+        max-width: 400px; /* Un máximo para que no se extiendan demasiado en móviles grandes */
+        height: 300px;
+    }
+    .card-info h3 {
+        font-size: 1em;
+    }
 }
